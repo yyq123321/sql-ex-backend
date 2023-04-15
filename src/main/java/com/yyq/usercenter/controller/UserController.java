@@ -29,6 +29,7 @@ import static com.yyq.usercenter.constant.UserConstant.USER_LOGIN_STATE;
  */
 @RestController
 @RequestMapping("/user")
+@CrossOrigin(origins = {"http://116.62.33.233"}, allowCredentials = "true")
 public class UserController {
 
     @Resource
