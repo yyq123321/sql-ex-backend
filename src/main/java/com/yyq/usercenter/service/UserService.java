@@ -2,7 +2,8 @@ package com.yyq.usercenter.service;
 
 import com.baomidou.mybatisplus.extension.service.IService;
 import com.yyq.usercenter.model.domain.User;
-import jakarta.servlet.http.HttpServletRequest;
+
+import javax.servlet.http.HttpServletRequest;
 
 /**
 * @author Acer

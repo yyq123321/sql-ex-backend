@@ -8,13 +8,13 @@ import com.yyq.usercenter.exception.BusinessException;
 import com.yyq.usercenter.model.domain.User;
 import com.yyq.usercenter.service.UserService;
 import com.yyq.usercenter.mapper.UserMapper;
-import jakarta.annotation.Resource;
-import jakarta.servlet.http.HttpServletRequest;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.stereotype.Service;
 import org.springframework.util.DigestUtils;
 
+import javax.annotation.Resource;
+import javax.servlet.http.HttpServletRequest;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
