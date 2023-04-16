@@ -1,4 +1,4 @@
-FROM maven:3.8-eclipse-temurin-17-alpine
+FROM maven:3.8-eclipse-temurin-8-alpine
 
 # Copy local code to the container image.
 WORKDIR /app
