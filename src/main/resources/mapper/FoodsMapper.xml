@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.yyq.sql.mapper.FoodsMapper">
+
+    <resultMap id="BaseResultMap" type="com.yyq.sql.model.domain.Foods">
+            <id property="id" column="id" jdbcType="BIGINT"/>
+            <result property="name" column="name" jdbcType="VARCHAR"/>
+            <result property="category" column="category" jdbcType="INTEGER"/>
+            <result property="businessId" column="business_id" jdbcType="BIGINT"/>
+            <result property="price" column="price" jdbcType="DOUBLE"/>
+            <result property="photo" column="photo" jdbcType="VARCHAR"/>
+            <result property="createTime" column="create_time" jdbcType="TIMESTAMP"/>
+            <result property="updateTime" column="update_time" jdbcType="TIMESTAMP"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        id,name,category,
+        business_id,price,photo,
+        create_time,update_time
+    </sql>
+</mapper>

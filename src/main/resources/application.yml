@@ -1,27 +1,46 @@
+# 公共配置文件
 spring:
   application:
-    name: user-center
-  datasource:
-    driver-class-name: com.mysql.jdbc.Driver
-#    url: jdbc:mysql://localhost:3306/yyq_universe?useUnicode=true&characterEncoding=UTF-8&serverTimezone=UTC&useSSL=false
-    url: jdbc:mysql://rm-cn-uqm36g3os001nluo.rwlb.rds.aliyuncs.com:3306/yyq_universe?useUnicode=true&characterEncoding=UTF-8&serverTimezone=UTC&useSSL=false
-    username: yyq
-    password: YYQyyq12377
-#  超时时间
+    name: sql-backend
+  # 默认 dev 环境
+  profiles:
+    active: test
+  # 支持 swagger3
+  mvc:
+    pathmatch:
+      matching-strategy: ant_path_matcher
+  # session 配置
   session:
-    timeout: 86400
+    # todo 取消注释开启分布式 session（须先配置 Redis）
+    # store-type: redis
+    # 30 天过期
+    timeout: 2592000
+  # 数据库配置
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/sql_backend?useUnicode=true&characterEncoding=UTF-8&serverTimezone=UTC&useSSL=false
+    username: root
+
+  # 文件上传
+  servlet:
+    multipart:
+      # 大小限制
+      max-file-size: 10MB
 server:
-  port: 8080
+  address: 0.0.0.0
+  port: 8081
   servlet:
     context-path: /api
+    # cookie 30 天过期
+    session:
+      cookie:
+        max-age: 2592000
 mybatis-plus:
   configuration:
     map-underscore-to-camel-case: false
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
   global-config:
     db-config:
-      logic-delete-field: isDelete #默认deleted
-      logic-delete-value: 1
-      logic-not-delete-value: 0
-
-#mybatis-plus:
-#  mapper-locations: classpath:/com/yyq/usercenter/mapper/*
+      logic-delete-field: isDelete # 全局逻辑删除的实体字段名
+      logic-delete-value: 1 # 逻辑已删除值（默认为 1）
+      logic-not-delete-value: 0 # 逻辑未删除值（默认为 0）
